@@ -1,0 +1,15 @@
+//this file is used to convert typescript into javascript
+{
+    "compilerOptions": {
+        "target": "es2023",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
