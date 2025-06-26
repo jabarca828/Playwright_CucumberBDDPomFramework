@@ -2,6 +2,7 @@ import { Page } from "@playwright/test";
 import { BasePage } from "./BasePage";
 import { pageFixture } from "../../step-definitions/hooks/browserContextFixture";
 import{ HomePage } from "../HomePage";
+import { ContactUsPage } from "../ContactUsPage";
 
 export class PageManager {
     get page(): Page {
@@ -14,5 +15,9 @@ export class PageManager {
 
     createHomePage() {
         return new HomePage();
+    }
+
+    createContactUsPage() {
+        return new ContactUsPage();
     }
 }

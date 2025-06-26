@@ -1,8 +1,9 @@
 import { Page, Locator } from "@playwright/test";
 import { pageFixture } from "../../step-definitions/hooks/browserContextFixture";
+
 //Load env variables from .env file
 import { config as loadEnv } from "dotenv"
-const env = loadEnv({ path: './env/.env' })
+const env = loadEnv({ path: './env/.env' });
 
 //Create a configuration object for easy access to env variables
 const config = {
@@ -38,18 +39,18 @@ export class BasePage {
     }
 
     public async switchToNewTab(): Promise<void> {
-         await this.page.context().waitForEvent("page") //Re-initialize the page > new tab > page
-        
-            //Retrieve all current open pages (tabs)
-            const allPages = await this.page.context().pages();
-        
-            //Assign the most recent tab to pageFixture.page
-            pageFixture.page = allPages [allPages.length-1];
-        
-            //Bring the newly assigned tab to the front (Make it active)
-            await this.page.bringToFront();
-        
-            //Ensure the newly assigned tab is also fully maximized
-            await this.page.setViewportSize({width:config.width, height:config.height});
-    }
+        await this.page.context().waitForEvent("page"); //reintialise the page > new tab > page
+
+        //Retrieve all current open pages (tabs)
+        const allPages = await this.page.context().pages();
+    
+        //Assign the most recent tab to pageFixture.page
+        pageFixture.page = allPages[allPages.length - 1];
+    
+        //Bring the newly assigned tab to the front (Make it active)
+        await this.page.bringToFront();
+    
+        //Ensure the newly assigned tab is also fully maximised 
+        await this.page.setViewportSize({ width: config.width, height: config.height });
+    } 
 }
